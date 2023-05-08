@@ -1,0 +1,52 @@
+﻿@{
+    var currentController = ViewContext.RouteData.Values["Controller"];
+    var currentAction = ViewContext.RouteData.Values["Action"];
+}
+<ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="">
+    <li class="nav-item @(currentController.ToString() == "Home"?"active":"")">
+        <a asp-controller="Home" asp-action="Index">
+            <i class="bx bxs-home"></i>
+            <span class="menu-title">کارتابل</span>
+        </a>
+    </li>
+    <li class="has-sub">
+        <a href="javascript:">
+            <i class="bx bx-user"></i>
+            <span class="menu-item">پرسنل</span>
+        </a>
+        <ul class="menu-content" style="">
+            <li>
+                <a asp-controller="Employee" asp-action="Index">
+                    <i class="bx bx-list-ol"></i>
+                    <span class="menu-item">لیست پرسنل</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Employee" asp-action="BirthDate">
+                    <i class="bx bx-list-ol"></i>
+                    <span class="menu-item">لیست تولد ها</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Employee" asp-action="LongOfMilitaryServices">
+                    <i class="bx bx-list-ol"></i>
+                    <span class="menu-item">خدمت ها</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="has-sub">
+        <a href="javascript:">
+            <i class="bx bx-bell-plus"></i>
+            <span class="menu-item"> درجه</span>
+        </a>
+        <ul class="menu-content" style="">
+            <li>
+                <a asp-controller="Grade" asp-action="Index">
+                    <i class="bx bx-list-ol"></i>
+                    <span class="menu-item">لیست درجه ها</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

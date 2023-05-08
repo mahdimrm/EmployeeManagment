@@ -1,0 +1,57 @@
+﻿@using Employee.Entities;
+@model Child
+@{
+    ViewData["Title"] = "ایجاد فرزند";
+}
+<div class="content-header row">
+    <div class="content-header-left col-12 my-2">
+        <div class="row breadcrumbs-top">
+            <div class="col-12">
+                <h5 class="content-header-title float-left">@ViewData["Title"] برای @ViewBag.employeeFullName</h5>
+                <div class="breadcrumb-wrapper ">
+                    <ol class="breadcrumb p-0 pl-1 mb-0">
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Employee" asp-action="Index"><i class="bx bx-home-alt"></i></a>
+                        </li>
+                        <li class="breadcrumb-item active">
+                            @ViewData["Title"]
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<form asp-action="Create" asp-controller="Child" method="post">
+    <div class="row mt-2">
+        <input type="hidden" asp-for="EmployeeId" value="@ViewBag.employeeId" />
+        <div class="col-4">
+            <label asp-for="FirstName" class="control-label"></label>
+            <input asp-for="FirstName" type="text" class="form-control" />
+            <span asp-validation-for="FirstName" class="invalid-feedback"></span>
+
+            <label asp-for="LastName" class="control-label"></label>
+            <input asp-for="LastName" type="text" class="form-control" />
+            <span asp-validation-for="LastName" class="invalid-feedback"></span>
+        </div>
+
+        <div class="col-4">
+            <label asp-for="NationalCode" class="control-label"></label>
+            <input asp-for="NationalCode" type="number" class="form-control" />
+            <span asp-validation-for="NationalCode" class="invalid-feedback"></span>
+
+            <label asp-for="BirthDate" class="control-label"></label>
+            <input type="text" value="@DateTime.Now.ToPersianDate()" class="form-control shamsi-datepicker" asp-for="BirthDate">
+            <span asp-validation-for="BirthDate" class="invalid-feedback"></span>
+        </div>
+        <div class="col-4">
+            <label asp-for="MahaleSodoreShenasname" class="control-label"></label>
+            <input asp-for="MahaleSodoreShenasname" type="text" class="form-control" />
+            <span asp-validation-for="MahaleSodoreShenasname" class="invalid-feedback"></span>
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-primary ">افزودن</button>
+</form>
+
